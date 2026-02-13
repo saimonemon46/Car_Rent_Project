@@ -18,7 +18,19 @@
     </div>
     <div>
         <p>Mail Us: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
-        <p>Contact Info: <?php echo $contactInfo; ?></p>
+        <p>Help Line: <?php echo $contactInfo; ?></p>
     </div>
 
-</header
+
+    <?php 
+    if(empty($_SESSION['login']))
+        {?>
+            <div>
+                <a href="includes/login.php">SignUp</a> 
+            </div>
+        <?php } else { ?>
+        <p>Welcome, <?php echo $_SESSION['login']; ?>!  </p>
+        <?php } ?>
+
+
+</header>
