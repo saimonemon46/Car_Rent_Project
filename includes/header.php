@@ -3,10 +3,22 @@
         <a href="index.php">
             <img src="assets/images/logo.png" alt="Car Rental Logo">
         </a>
-        php for contact us and social media links
+        <?php
+        // Fetch company contact info from the database 
+        $sql = "SELECT EmailId, ContactNo FROM tblcontactusinfo";
+        $query = $conn->prepare($sql);
+        $query->execute();  
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        // loop through the results and display the contact info
+        foreach($result as $row) {
+            $email = $row['EmailId'];
+            $contactInfo = $row['ContactNo'];
+        }
+        ?>
     </div>
     <div>
-        <p>Mail Us: <a href="mailto:"></a></p>
+        <p>Mail Us: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
+        <p>Contact Info: <?php echo $contactInfo; ?></p>
     </div>
 
 </header
