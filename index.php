@@ -22,6 +22,8 @@ include('includes/config.php');
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
         }
         
         /* Hero Section */
@@ -30,7 +32,8 @@ include('includes/config.php');
             color: white;
             padding: 80px 20px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin: 0;
+            border-bottom: 3px solid rgba(255,255,255,0.1);
         }
         
         .hero h1 {
@@ -344,7 +347,7 @@ include('includes/config.php');
     </div>
 </section>
 
-<?php //if (!empty($_SESSION['login'])): ?>
+<?php if (!empty($_SESSION['login'])): ?>
 <!-- Welcome Section
 <section class="welcome-section">
     <div class="welcome-content">

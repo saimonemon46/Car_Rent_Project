@@ -1,4 +1,4 @@
-<header style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<header style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0; margin: 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-bottom: 3px solid rgba(255,255,255,0.1);">
   
   <!-- Top Info Bar -->
   <div style="background-color: rgba(0,0,0,0.1); padding: 10px 20px;">
