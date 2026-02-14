@@ -391,7 +391,7 @@ include('includes/config.php');
 </section>
 
 <?php include('includes/footer.php'); ?>    
-<?php include('includes/login.php'); ?>
-<?php include('includes/register.php'); ?>
+<?php //include('includes/login.php'); ?>
+<?php //include('includes/register.php'); ?>
 </body>
 </html>
