@@ -1,7 +1,11 @@
-
 <?php
 session_start();
+var_dump($_SESSION); // add this temporarily
 include('includes/config.php');
+?>
+<?php
+// session_start();
+// include('includes/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -346,35 +350,6 @@ include('includes/config.php');
         <a href="search.php" class="hero-cta">Explore Our Fleet</a>
     </div>
 </section>
-
-<?php if (!empty($_SESSION['login'])): ?>
-<!-- Welcome Section
-<section class="welcome-section">
-    <div class="welcome-content">
-        <div class="welcome-message">
-            <?php
-            // $session_email = $_SESSION['login'];
-            // $sql = "SELECT FullName FROM tblusers WHERE EmailId = :email";
-            // $query = $conn->prepare($sql);
-            // $query->bindParam(':email', $session_email, PDO::PARAM_STR);
-            // $query->execute();
-            // $user = $query->fetch(PDO::FETCH_ASSOC);
-            
-            // if ($user) {
-            //     echo "👋 Welcome back, " . htmlentities($user['FullName']) . "!";
-            // } else {
-            //     echo "👋 Welcome back!";
-            // }
-            ?>
-        </div>
-        <ul class="welcome-menu">
-            <li><a href="profile.php">📋 My Profile</a></li>
-            <li><a href="my_booking.php">📅 My Bookings</a></li>
-            <li><a href="change_password.php">🔐 Password</a></li>
-        </ul>
-    </div>
-</section> -->
-<?php endif; ?>
 
 <!-- Featured Cars Section -->
 <section class="featured-section">

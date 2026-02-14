@@ -25,21 +25,7 @@ if (isset($_POST['login'])) {
             $success = 'Login successful! Redirecting...';
             header("refresh:2;url=../index.php");
         } else {
-            // Check in admin table
-            $sql = "SELECT * FROM admin WHERE UserName = :email";
-            $query = $conn->prepare($sql);
-            $query->bindParam(':email', $email, PDO::PARAM_STR);
-            $query->execute();
-            $admin = $query->fetch(PDO::FETCH_ASSOC);
-            
-            if ($admin && md5($password) == $admin['Password']) {
-                $_SESSION['login'] = $email;
-                $_SESSION['admin'] = true;
-                $success = 'Admin login successful! Redirecting...';
-                header("refresh:2;url=../admin/index.php");
-            } else {
-                $error = 'Invalid email or password';
-            }
+            $error = 'Invalid email or password';
         }
     }
 }

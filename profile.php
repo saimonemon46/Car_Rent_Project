@@ -8,11 +8,17 @@ if (empty($_SESSION['login'])) {
     exit();
 }
 
+// Check if logged in user is an admin (redirect to admin panel instead)
+if (!empty($_SESSION['admin'])) {
+    header("Location: admin/index.php");
+    exit();
+}
+
 $email = $_SESSION['login'];
 $error = '';
 $success = '';
 
-// Fetch user data
+// Fetch user data from tblusers table
 $sql = "SELECT * FROM tblusers WHERE EmailId = :email";
 $query = $conn->prepare($sql);
 $query->bindParam(':email', $email, PDO::PARAM_STR);
@@ -100,6 +106,17 @@ $booking_stats = $booking_query->fetch(PDO::FETCH_ASSOC);
         }
         
         .profile-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .profile-header .user-name {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .profile-header .user-email {
             font-size: 14px;
             opacity: 0.9;
         }
@@ -300,7 +317,8 @@ $booking_stats = $booking_query->fetch(PDO::FETCH_ASSOC);
     
     <div class="profile-header">
         <h1>👤 My Profile</h1>
-        <p><?php echo htmlentities($email); ?></p>
+        <div class="user-name"><?php echo htmlentities($user['FullName'] ?? 'User'); ?></div>
+        <div class="user-email"><?php echo htmlentities($email); ?></div>
     </div>
     
     <!-- Stats -->
@@ -349,7 +367,7 @@ $booking_stats = $booking_query->fetch(PDO::FETCH_ASSOC);
                         <input 
                             type="email" 
                             id="email" 
-                            value="<?php echo htmlentities($user['EmailId']); ?>"
+                            value="<?php echo htmlentities($email); ?>"
                             placeholder="Your email"
                             readonly
                             style="background-color: #f0f0f0; cursor: not-allowed;"

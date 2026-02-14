@@ -11,12 +11,12 @@
       $result = $query->fetchAll(PDO::FETCH_ASSOC);
       // loop through the results and display the contact info
       foreach ($result as $row) {
-        $email = $row['EmailId'];
-        $contactInfo = $row['ContactNo'];
+          $company_email = $row['EmailId'];
+          $contactInfo = $row['ContactNo'];
       }
       ?>
       <div style="display: flex; gap: 30px; align-items: center;">
-        <span>📧 <a href="mailto:<?php echo htmlentities($email); ?>" style="color: white; text-decoration: none;"><?php echo htmlentities($email); ?></a></span>
+        <span>📧 <a href="mailto:<?php echo htmlentities($company_email); ?>"style="color: white; text-decoration: none;"><?php echo htmlentities($company_email); ?></a></span>
         <span>📞 <?php echo htmlentities($contactInfo); ?></span>
       </div>
       
@@ -88,7 +88,7 @@
           <a href="profile.php" style="display: block; padding: 12px 15px; text-decoration: none; color: #333; transition: 0.3s;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='white'">👤 My Profile</a>
           <a href="change_password.php" style="display: block; padding: 12px 15px; text-decoration: none; color: #333; transition: 0.3s;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='white'">🔐 Change Password</a>
           <a href="my_booking.php" style="display: block; padding: 12px 15px; text-decoration: none; color: #333; transition: 0.3s;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='white'">📅 My Bookings</a>
-          <a href="logout.php" style="display: block; padding: 12px 15px; text-decoration: none; color: #ff6b6b; font-weight: bold; transition: 0.3s; border-top: 1px solid #eee;" onmouseover="this.style.backgroundColor='#fff0f0'" onmouseout="this.style.backgroundColor='white'">🚪 Sign Out</a>
+          <a href="includes/logout.php" style="display: block; padding: 12px 15px; text-decoration: none; color: #ff6b6b; font-weight: bold; transition: 0.3s; border-top: 1px solid #eee;" onmouseover="this.style.backgroundColor='#fff0f0'" onmouseout="this.style.backgroundColor='white'">🚪 Sign Out</a>
         </div>
       </div>
       <?php } ?>
