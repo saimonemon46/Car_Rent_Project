@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 include('includes/config.php');
 ?>
 
@@ -280,6 +281,22 @@ include('includes/config.php');
         .search-link:hover {
             background-color: #ff5252;
         }
+        
+        /* Main Layout with Sidebar */
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -298,10 +315,16 @@ include('includes/config.php');
 <!-- Featured Cars Section -->
 <section class="featured-section">
     <div class="container">
-        <div class="section-header">
-            <h2>Our Popular Cars</h2>
-            <p>Browse our selection of high-quality vehicles to suit your needs and preferences</p>
-        </div>
+        <div class="main-wrapper">
+            <?php if (!empty($_SESSION['login'])): ?>
+                <?php include('includes/sidebar.php'); ?>
+            <?php endif; ?>
+            
+            <div>
+                <div class="section-header">
+                    <h2>Our Popular Cars</h2>
+                    <p>Browse our selection of high-quality vehicles to suit your needs and preferences</p>
+                </div>
         
         <div class="cars-grid">
         <?php $sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand limit 9";
@@ -339,6 +362,8 @@ include('includes/config.php');
         
         <div style="text-align: center;">
             <a href="search.php" class="search-link">Search All Vehicles</a>
+        </div>
+            </div>
         </div>
     </div>
 </section>
