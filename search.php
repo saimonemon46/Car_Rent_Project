@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('includes/config.php');
 
 // Initialize search variables
@@ -78,23 +79,57 @@ $total_results = count($vehicles);
         }
         
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .search-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid rgba(255,255,255,0.1);
+        }
+        
+        .search-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #764ba2;
         }
         
         .search-container {
             background-color: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 12px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .search-filters {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 20px;
+            margin-bottom: 20px;
         }
         
         .filter-group {
@@ -103,104 +138,131 @@ $total_results = count($vehicles);
         }
         
         .filter-group label {
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: #333;
+            font-size: 14px;
         }
         
         .filter-group input,
         .filter-group select {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
             font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .filter-group input:focus,
+        .filter-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
         
         .search-button {
-            background-color: #3498db;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
+            font-weight: bold;
             align-self: flex-end;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         
         .search-button:hover {
-            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
         
         .results-info {
             margin-bottom: 20px;
-            color: #666;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-left: 4px solid #667eea;
+            border-radius: 6px;
+            color: #333;
             font-size: 14px;
+        }
+        
+        .results-info strong {
+            color: #667eea;
         }
         
         .vehicles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-top: 20px;
+            margin-bottom: 30px;
         }
         
         .vehicle-card {
             background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .vehicle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .vehicle-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
         }
         
         .vehicle-info {
-            padding: 15px;
+            padding: 20px;
         }
         
         .vehicle-title {
             font-size: 18px;
             font-weight: bold;
             color: #333;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .vehicle-brand {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
+            color: #667eea;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
         
         .vehicle-details {
             list-style: none;
             margin-bottom: 15px;
             font-size: 13px;
-            color: #555;
+            color: #666;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
         }
         
         .vehicle-details li {
-            padding: 3px 0;
+            padding: 5px 0;
         }
         
         .vehicle-price {
-            font-size: 20px;
-            color: #27ae60;
+            font-size: 22px;
+            color: #ff6b6b;
             font-weight: bold;
             margin-bottom: 12px;
+        }
+        
+        .vehicle-price span {
+            font-size: 13px;
+            color: #999;
         }
         
         .vehicle-actions {
@@ -210,45 +272,88 @@ $total_results = count($vehicles);
         
         .btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 14px;
             cursor: pointer;
             border: none;
+            font-weight: bold;
+            transition: all 0.3s;
         }
         
         .btn-primary {
-            background-color: #3498db;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
         
         .btn-primary:hover {
-            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
         
         .no-results {
             text-align: center;
-            padding: 40px;
+            padding: 60px;
             background-color: white;
-            border-radius: 8px;
+            border-radius: 12px;
             color: #666;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .no-results h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
         }
         
         .no-results p {
             margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .clear-filters-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .clear-filters-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
-            color: #3498db;
+            color: #667eea;
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
         }
         
         .back-link:hover {
-            text-decoration: underline;
+            color: #764ba2;
+        }
+        
+        .search-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
         }
     </style>
 </head>
@@ -256,10 +361,14 @@ $total_results = count($vehicles);
 
 <?php include('includes/header.php'); ?>
 
-<section style="padding: 30px 20px; max-width: 1200px; margin: 0 auto;">
+<!-- Search Header -->
+<div class="search-header">
+    <h1>🔍 Search Vehicles</h1>
+    <p>Find your perfect car with advanced filters</p>
+</div>
+
+<div class="container">
     <a href="index.php" class="back-link">← Back to Home</a>
-    
-    <h1 style="margin-bottom: 20px;">Search Vehicles</h1>
     
     <div class="search-container">
         <form method="GET" action="search.php">
@@ -353,11 +462,9 @@ $total_results = count($vehicles);
             <a href="search.php" class="btn btn-primary" style="display: inline-block; color: white; text-decoration: none;">Clear Filters</a>
         </div>
     <?php endif; ?>
-</section>
+</div>
 
 <?php include('includes/footer.php'); ?>
-<?php include('includes/login.php'); ?>
-<?php include('includes/register.php'); ?>
 
 </body>
 </html>
