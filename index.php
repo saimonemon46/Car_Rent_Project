@@ -282,20 +282,52 @@ include('includes/config.php');
             background-color: #ff5252;
         }
         
-        /* Main Layout with Sidebar */
-        .main-wrapper {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Welcome Section */
+        .welcome-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
-        @media (max-width: 1024px) {
-            .main-wrapper {
-                grid-template-columns: 1fr;
-            }
+        .welcome-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .welcome-message {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .welcome-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .welcome-menu li {
+            margin: 0;
+        }
+        
+        .welcome-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+        
+        .welcome-menu a:hover {
+            background-color: rgba(255,255,255,0.2);
         }
     </style>
 </head>
@@ -312,19 +344,42 @@ include('includes/config.php');
     </div>
 </section>
 
+<?php //if (!empty($_SESSION['login'])): ?>
+<!-- Welcome Section
+<section class="welcome-section">
+    <div class="welcome-content">
+        <div class="welcome-message">
+            <?php
+            // $session_email = $_SESSION['login'];
+            // $sql = "SELECT FullName FROM tblusers WHERE EmailId = :email";
+            // $query = $conn->prepare($sql);
+            // $query->bindParam(':email', $session_email, PDO::PARAM_STR);
+            // $query->execute();
+            // $user = $query->fetch(PDO::FETCH_ASSOC);
+            
+            // if ($user) {
+            //     echo "👋 Welcome back, " . htmlentities($user['FullName']) . "!";
+            // } else {
+            //     echo "👋 Welcome back!";
+            // }
+            ?>
+        </div>
+        <ul class="welcome-menu">
+            <li><a href="profile.php">📋 My Profile</a></li>
+            <li><a href="my_booking.php">📅 My Bookings</a></li>
+            <li><a href="change_password.php">🔐 Password</a></li>
+        </ul>
+    </div>
+</section> -->
+<?php endif; ?>
+
 <!-- Featured Cars Section -->
 <section class="featured-section">
     <div class="container">
-        <div class="main-wrapper">
-            <?php if (!empty($_SESSION['login'])): ?>
-                <?php include('includes/sidebar.php'); ?>
-            <?php endif; ?>
-            
-            <div>
-                <div class="section-header">
-                    <h2>Our Popular Cars</h2>
-                    <p>Browse our selection of high-quality vehicles to suit your needs and preferences</p>
-                </div>
+        <div class="section-header">
+            <h2>Our Popular Cars</h2>
+            <p>Browse our selection of high-quality vehicles to suit your needs and preferences</p>
+        </div>
         
         <div class="cars-grid">
         <?php $sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand limit 9";
@@ -362,8 +417,6 @@ include('includes/config.php');
         
         <div style="text-align: center;">
             <a href="search.php" class="search-link">Search All Vehicles</a>
-        </div>
-            </div>
         </div>
     </div>
 </section>
