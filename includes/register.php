@@ -78,7 +78,7 @@ if (isset($_POST['register'])) {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 10px;
         }
         
         .register-container {
@@ -87,8 +87,10 @@ if (isset($_POST['register'])) {
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             width: 100%;
             max-width: 520px;
-            padding: 40px;
+            max-height: 95vh;
+            padding: 25px;
             animation: slideUp 0.5s ease;
+            overflow-y: auto;
         }
         
         @keyframes slideUp {
@@ -104,46 +106,46 @@ if (isset($_POST['register'])) {
         
         .register-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
         
         .register-header h1 {
             color: #333;
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 5px;
         }
         
         .register-header p {
             color: #666;
-            font-size: 14px;
+            font-size: 12px;
         }
         
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 12px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             color: #333;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 12px;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 8px 12px;
             border: 2px solid #e0e0e0;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 13px;
             transition: border-color 0.3s;
             font-family: inherit;
         }
         
         .form-group textarea {
             resize: vertical;
-            min-height: 80px;
+            min-height: 50px;
         }
         
         .form-group input:focus,
@@ -156,7 +158,7 @@ if (isset($_POST['register'])) {
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 10px;
         }
         
         @media (max-width: 600px) {
@@ -167,16 +169,16 @@ if (isset($_POST['register'])) {
         
         .register-button {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 10px;
+            margin-top: 8px;
         }
         
         .register-button:hover {
@@ -191,14 +193,15 @@ if (isset($_POST['register'])) {
         .terms {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
-            font-size: 13px;
+            margin-bottom: 12px;
+            font-size: 11px;
         }
         
         .terms input[type="checkbox"] {
-            margin-right: 8px;
-            margin-top: 3px;
+            margin-right: 6px;
+            margin-top: 2px;
             cursor: pointer;
+            flex-shrink: 0;
         }
         
         .terms label {
@@ -218,11 +221,11 @@ if (isset($_POST['register'])) {
         
         .login-link {
             text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 12px;
+            padding-top: 12px;
             border-top: 1px solid #e0e0e0;
             color: #666;
-            font-size: 14px;
+            font-size: 12px;
         }
         
         .login-link a {
@@ -237,10 +240,10 @@ if (isset($_POST['register'])) {
         }
         
         .alert {
-            padding: 12px 15px;
+            padding: 10px 12px;
             border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 14px;
+            margin-bottom: 12px;
+            font-size: 12px;
             animation: slideDown 0.3s ease;
         }
         
@@ -268,9 +271,9 @@ if (isset($_POST['register'])) {
         }
         
         .password-strength {
-            font-size: 12px;
-            margin-top: 5px;
-            padding: 8px;
+            font-size: 10px;
+            margin-top: 3px;
+            padding: 5px;
             border-radius: 4px;
             background-color: #f0f0f0;
             color: #666;
