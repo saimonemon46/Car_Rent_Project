@@ -48,7 +48,7 @@
           <?php else: ?>
             <span style="font-size: 28px; margin-right: 8px;">🚗</span>
           <?php endif; ?>
-          <span>CarHire</span>
+          <!-- <span>CarHire</span> -->
         </a>
       </div>
       
