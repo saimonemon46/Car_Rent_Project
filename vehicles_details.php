@@ -261,6 +261,42 @@ if(isset($_GET['vid'])) {
             line-height: 1.8;
             font-size: 15px;
         }
+
+            /* Gallery Styles */
+    .gallery-section {
+        margin-top: 30px;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .gallery-item {
+        border-radius: 8px;
+        overflow: hidden;
+        height: 150px;
+        cursor: pointer;
+        border: 2px solid #f0f0f0;
+        transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.03);
+        border-color: #667eea;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     </style>
 </head>
 <body>
@@ -286,7 +322,28 @@ if(isset($_GET['vid'])) {
             <?php else: ?>
                 <div class="no-image">🚗</div>
             <?php endif; ?>
-        </div>
+        </div><div class="gallery-section">
+    <h3>📸 Photo Gallery</h3>
+    <div class="gallery-grid">
+        <?php 
+        // Array of image column names from your database
+        $image_fields = ['Vimage1', 'Vimage2', 'Vimage3', 'Vimage4', 'Vimage5'];
+        
+        foreach($image_fields as $field) {
+            // Check if the field is not empty and not null
+            if(!empty($vehicle[$field])) {
+                ?>
+                <div class="gallery-item">
+                    <img src="admin/img/vehicleimages/<?php echo htmlentities($vehicle[$field]); ?>" 
+                         alt="Vehicle Image" 
+                         onclick="window.open(this.src, '_blank')">
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
+</div>
 
         <!-- Vehicle Info -->
         <div class="info-card">
