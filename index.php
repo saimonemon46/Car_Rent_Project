@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION); // add this temporarily
+// var_dump($_SESSION); // add this temporarily
 include('includes/config.php');
 ?>
 <?php
