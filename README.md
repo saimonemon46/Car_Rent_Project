@@ -2,6 +2,16 @@
 
 A comprehensive web-based car rental management system that allows users to browse vehicles, make bookings, and manage their reservations. The system includes an admin panel for managing vehicles, bookings, users, and other administrative tasks.
 
+## 🎬 Video Demo
+
+Watch a complete walkthrough of the NexaCore website:
+
+[![NexaCore Website Demo](https://img.youtube.com/vi/EW-FO9Nu7BM/maxresdefault.jpg)](https://youtu.be/e200PCJ9cJM)
+
+[**Watch Full Demo on YouTube** →](https://youtu.be/e200PCJ9cJM)
+
+---
+
 ## Features
 
 ### User Features
@@ -148,12 +158,6 @@ Import the `backend.sql` file to create the necessary tables automatically:
 3. Manage vehicles, brands, bookings, and users from the respective sections
 4. View statistics and reports on the dashboard
 5. Respond to customer inquiries in the Contact Queries section
-
-## Video Demo
-
-Watch a complete walkthrough of the Car Rental Management System:
-
-- [YouTube Demo Video](https://youtu.be/e200PCJ9cJM)
 
 ## Default Admin Credentials
 
