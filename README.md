@@ -4,7 +4,7 @@ A comprehensive web-based car rental management system that allows users to brow
 
 ## 🎬 Video Demo
 
-Watch a complete walkthrough of the NexaCore website:
+Watch a complete walkthrough of the Premium Car Rental website:
 
 [![Premium Car Rental Website Demo](https://img.youtube.com/vi/e200PCJ9cJM/maxresdefault.jpg)](https://youtu.be/e200PCJ9cJM)
 
