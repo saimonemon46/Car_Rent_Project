@@ -20,9 +20,9 @@
 
 <li><a href="#"><i class="fa fa-sitemap"></i> Bookings</a>
 					<ul>
-						<!-- <li><a href="new-bookings.php">New</a></li> -->
-						<li><a href="confirmed-bookings.php">Confirmed</a></li>
-						<li><a href="canceled-bookings.php">Canceled</a></li>
+						<li><a href="new-bookings.php">New</a></li>
+						<!-- <li><a href="confirmed-bookings.php">Confirmed</a></li> -->
+						<!-- <li><a href="canceled-bookings.php">Canceled</a></li> -->
 					</ul>
 				</li>
 
